@@ -1,37 +1,77 @@
 # EDGE_COMPUTING-CP04
 
-### Integrantes
-|Nome|RM|
-|:----:|:----:|
-|Gabriel Machado Belardino|550121|
-|Ana Beatriz Farah Alvez|97865|
-|Kaiky Alvaro de Miranda|98118|
-|Lucas Rodrigues da Silva|98344|
-|Pedro Henrique Bicas Couto|99534|
+## Integrantes
 
-### ⌛status do projeto: concluído
-<br> </br>
-> #### 🖥️ O projeto consiste em um medidor de temperatura e umidade do ambiente. Para isso, foi utilizado o sensor integrado DHT11, que já possui uma biblioteca implementada para o Arduino. Para utilizá-lo, é necessário instalar essa biblioteca no IDE do Arduino. Os valores, assim como mensagens de alerta, são mostrados em um display e, além disso, utilizamos leds (verde, amarelo e vermelho) para mostrar o estado do ambiente. 
-<br> </br>
-> 🚥Quando a temperatura esta fora do padrão, o led amarelo acendo e a buzina toca continuamente.<p>
-🚥Quando a umidade esta fora do padrão, o led vermleho acendo e a buzina toca continuamente.</p>
-🚥Quando o ambiente esta meio iluminado, acende o led amarelo e quando o ambiente esta muito iluminado o led vermelho acende e a buzina toca continuamente.<p>
-🚥O verde aparece quando tudo estiver no padrão correto. </p>
+|            Nome            |   RM   |
+| :------------------------: | :----: |
+| Gabriel Machado Belardino  | 550121 |
+|  Ana Beatriz Farah Alvez   | 97865  |
+|  Kaiky Alvaro de Miranda   | 98118  |
+|  Lucas Rodrigues da Silva  | 98344  |
+| Pedro Henrique Bicas Couto | 99534  |
 
+---
 
+## Descrição do Projeto
 
-	Para reproduzi-lo, são necessários:
-<ul>
-<li> 4 resistores 220Ω </li>
-<li> 1 resistor 1kΩ </li>
-<li> Um sensor DHT11 </li>
-<li> Um buzzer </li>
-<li> 3 leds (verde, amarelo e vermelho) </li>
-<li> 2 placas de ensaio </li>
-<li>1 arduíno </li>
-<li> Um sensor LDR </li>
-<li> Um potenciometro </li>
-<li> 1 LCD  </li>
-</ul>
+Esse é um projeto desenvolvido para atender as necessidades da vinheira Agnello. Com o objetivo de garantir a qualidade de deus produtos, foi desenvolvido um sistema de monitoramento do ambiente do vinho, do qual devem ter sua temperatura, umidade e luminosidade.
 
-<img src = 'https://user-images.githubusercontent.com/126624971/234047454-bc17839d-9b62-48c3-8b72-a98ba8a52fd6.png'>
+---
+
+## Objetivo do projeto
+
+Desenvolver um sistema que envie a cada 5 segundos a temperatura, luminosidade e umidade para um servidor.
+
+---
+
+## Materiais necessários
+
+|  Componente  | Quantidade |
+| :----------: | :--------: |
+|    ESP32     |     1      |
+|    DHT11     |     1      |
+|     LDR      |     1      |
+| Resistor 1KΩ |     1      |
+
+![Teste](./imgs/Prototipo.png)
+> Apenas um protótipo do projeto desenvolvido no Tinkercad.
+
+---
+
+## Instalação do sistema
+
+### Dependências
+
+- [Arduino IDE](https://www.arduino.cc/en/software)
+- [ESP32](
+https://www.arduino.cc/reference/en/libraries/esp32/)
+- [DHT11](
+https://www.arduino.cc/reference/en/libraries/dht-sensor-library/)
+- [WiFi](
+https://www.arduino.cc/en/Reference/WiFi)
+
+### Passo a passo
+
+|Passo|Detalhe|
+|:---:|:---:|
+|1| Conecte os sensores ao ***ESP32***|
+|2| CLone o repositório|
+|3| Abra o arquivo [`codigo_fonte.ino`](./codigo_fonte.ino) no Arduino IDE|
+|4| Conecte a placa ESP32 no computador|
+|5| Selecione a placa ESP32 na IDE|
+|6| Compile e faça o upload do código para a placa|
+|7| Abra o monitor serial para visualizar os dados enviados|
+
+> Lembre que é necessário alterar as seguintes constantes para o funcionamento do sistema
+>
+>>``` C++
+>>#define ldr A0
+>>#define dhtPin 13
+>>...
+>>char ssid[] = "<Nome da Rede>";
+>>char pass[] = "<Senha da Rede>";
+>>...
+>>char tokenHeader[]   = "<Chave do servidor>"; 
+>>```
+
+---
